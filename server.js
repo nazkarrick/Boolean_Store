@@ -9,7 +9,6 @@ const BAZAARONLINE = express();
 const PORT = process.env.PORT || 3000; 
 const databaseName = 'Boolean';
 const preOrderObject = require('./models/pre_orders.js')
-//mongoose.connect(`mongodb://localhost:27017/${databaseName}`, { useNewUrlParser: true});
 mongoose.connection.once('open', () => {
     console.log('connected to mongo');
 });
@@ -27,7 +26,7 @@ BAZAARONLINE.get('/Boolean/seed', (req, res) => {
         {
             name: 'Dr34dkn0t',
             image: '/godKingScorpius_EP.png',
-            description: 'Stream his debut EP on Spotify',
+            description: 'Pre Orders available Dr34dkn0t\'s God King Scorpius EP',
             itemReadyForOrder: false
         }
     ], (error, data) => {
@@ -41,6 +40,11 @@ BAZAARONLINE.get('/Boolean', (req, res) => {
     res.render('main_page.ejs')
 })
 
+//SignIn 
+BAZAARONLINE.get('/Boolean/signIn', (req, res) => {
+    res.render('sign_in.ejs')
+})
+
 //Pre Order Page
 BAZAARONLINE.get('/Boolean/Pre_Orders', (req, res) => {
     preOrderObject.find({}, (error, preOrders) => {
@@ -49,27 +53,6 @@ BAZAARONLINE.get('/Boolean/Pre_Orders', (req, res) => {
         })
     })
 })
-
-//New/Create-Pre-Order
-// BAZAARONLINE.post('/Boolean/', (req, res) => {
-//     if(req.body.itemReadyForOrder === 'on') {
-//         req.body.itemReadyForOrder = true;
-//     } else {
-//         req.body.itemReadyForOrder = false;
-//     }
-//     preOrders.create(req.body, (error, newOrders) => {
-//         res.redirect('/Boolean/Pre_Orders')
-//     })
-// })
-
-
-
-//SignIn (show)
-BAZAARONLINE.get('/Boolean/signIn', (req, res) => {
-    res.render('sign_in.ejs')
-})
-
-
 
 //==== LOCAL PORT ====//
 BAZAARONLINE.listen(PORT, () => {
