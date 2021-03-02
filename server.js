@@ -8,7 +8,8 @@ const methodOverride = require('method-override');
 const BAZAARONLINE = express();
 const PORT = process.env.PORT || 3000; 
 const databaseName = 'Boolean';
-const preOrderObject = require('./models/pre_orders.js')
+const preOrderObject = require('./models/pre_orders.js') 
+const mailListObject = require('./models/mailing_list.js') //schema to store information?//
 mongoose.connection.once('open', () => {
     console.log('connected to mongo');
 });
@@ -40,9 +41,21 @@ BAZAARONLINE.get('/Boolean', (req, res) => {
     res.render('main_page.ejs')
 })
 
-//SignIn 
-BAZAARONLINE.get('/Boolean/signIn', (req, res) => {
-    res.render('sign_in.ejs')
+//Mailing List Form (New) 
+BAZAARONLINE.get('/Boolean/Mailing', (req, res) => {
+    res.render('mailing_list.ejs')
+})
+
+//Mailing list (Create)
+BAZAARONLINE.post('/Boolean', (req, res) => {
+    console.log(req.body)
+    if (req.body.confirmation === 'on') {
+        req.body.confirmation = true
+    } else {
+        req.body.confirmation = false
+    }
+    //Do I push a premade schema? or create an empty seed route where info can be stored?//
+    res.redirect('/Boolean')
 })
 
 //Pre Order Page

@@ -9,11 +9,13 @@
 </head>
 <body>
     <h2 class="headTitle">PRE ORDER MAILING LIST</h2>
-    <form>
+    <form action="/Boolean" method="POST">
         <p>Enter e-mail address to join the Pre-Order Mailing List</p>
         <div class="container">
             <label for="email"><strong>Email</strong></label>
             <input type="text" placeholder="Enter Email" name="email" required/>
+            <label for="confirmation">Click to confirm</label>
+            <input type="checkbox" name="confirmation" id="confirmation"/>
             <br>
             <button type="submit">Join Boolean</button>
         </div>

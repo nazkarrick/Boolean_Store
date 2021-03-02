@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const preOrderSchema = new mongoose.Schema({
-    name: String,
+    email: String,
     image: String,
     description: String,
     itemReadyForOrder: Boolean,
