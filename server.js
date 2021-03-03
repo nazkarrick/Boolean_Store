@@ -45,13 +45,11 @@ BAZAARONLINE.get('/Boolean/seed', (req, res) => {
     })
 })
 //=========== SHOW ROUTES =========//
-
 //Main Page (Index)
 BAZAARONLINE.get('/Boolean', (req, res) => {
     res.render('main_page.ejs')
 })
-
-//Pre Order Page
+//Pre Order Page (Index)
 BAZAARONLINE.get('/Boolean/Pre_Orders', (req, res) => {
     preOrderObject.find({}, (error, preOrders) => {
         res.render('pre_orders.ejs', {
@@ -59,7 +57,6 @@ BAZAARONLINE.get('/Boolean/Pre_Orders', (req, res) => {
         })
     })
 })
-
 //========Mail List Controller Data==================//
 //Mailing List Form (Index) 
 BAZAARONLINE.get('/Boolean/Mailing', (req, res) => {
