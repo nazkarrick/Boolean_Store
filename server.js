@@ -61,8 +61,6 @@ BAZAARONLINE.get('/Boolean/Pre_Orders', (req, res) => {
 })
 
 //========Mail List Controller Data==================//
-//================================================//
-//============================================//
 //Mailing List Form (Index) 
 BAZAARONLINE.get('/Boolean/Mailing', (req, res) => {
     mailListObject.find({}, (error, mailListNames) => {
@@ -71,24 +69,10 @@ BAZAARONLINE.get('/Boolean/Mailing', (req, res) => {
         })
     })
 })
-//Mailing List Form (Show)
-BAZAARONLINE.get('/Boolean/Mailing/:eml', (req, res) => {
-    mailListObject.findOne(req.params.email, (error, mailListNames) => {
-        res.render('mailing_list_show.ejs', {
-            allEditEmails: mailListNames
-        })
-    })
-})
-//Mailing List Form (Delete) 
-BAZAARONLINE.delete('/Boolean/Mailing/:eml', (req, res) => {
-    mailListObject.findByIdAndDelete(req.params.email, (error, deletedEmailListName) => {
-        res.redirect('/Boolean')
-    })
-})
 //Mailing list (Create)
 BAZAARONLINE.post('/Boolean/Mailing', (req, res) => {
     console.log(req.body)
-    if (req.body.confirmation === 'off') {
+    if (req.body.confirmation === 'on') {
         req.body.confirmation = true
     } else {
         req.body.confirmation = false
@@ -105,10 +89,11 @@ BAZAARONLINE.get('/Boolean/Mailing/:eml', (req, res) => {
             allEditEmails: mailListNames
         })
     })
+    console.log(req.params.email)
 })
 //Mailing List Form (Update)  
 BAZAARONLINE.put('/Boolean/Mailing/:eml', (req, res) => {
-    if (req.body.confirmation === 'off') {
+    if (req.body.confirmation === 'on') {
         req.body.confirmation = true
     } else {
         req.body.confirmation = false
@@ -117,6 +102,21 @@ BAZAARONLINE.put('/Boolean/Mailing/:eml', (req, res) => {
         res.redirect('/Boolean')
     })
 }) 
+//Mailing List Form (Show)
+BAZAARONLINE.get('/Boolean/Mailing/:eml', (req, res) => {
+    mailListObject.findOne(req.params.email, (error, mailListNames) => {
+        res.render('mailing_list_show.ejs', {
+            allEditEmails: mailListNames[req.params.email]
+        })
+    })
+    console.log(req.params.email)
+})
+//Mailing List Form (Delete) 
+BAZAARONLINE.delete('/Boolean/Mailing/:eml', (req, res) => {
+    mailListObject.findByIdAndDelete(req.params.email, (error, deletedEmailListName) => {
+        res.redirect('/Boolean')
+    })
+})
 //==== LOCAL PORT ====//
 BAZAARONLINE.listen(PORT, () => {
     console.log(`Private listening @ ${PORT}`)
