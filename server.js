@@ -1,3 +1,8 @@
+/*
+Websites utilized: cssgradient.io
+Applications utilized: Keynote for background: inkscape for boolean png files:
+*/
+
 //======== DEPENDENCIES ========//
 require('dotenv').config();
 const express = require('express');
@@ -74,7 +79,7 @@ BAZAARONLINE.post('/Boolean/Mailing', (req, res) => {
     } else {
         req.body.confirmation = false
     } 
-    //console.log(req.body)
+    console.log(req.body)
     mailListObject.create(req.body, (error, mailListNames) => { 
         res.redirect('/Boolean')
     }) 
@@ -86,7 +91,7 @@ BAZAARONLINE.get('/Boolean/Mailing/:eml', (req, res) => {
             allEditEmails: mailListNames
         })
     })
-    console.log(req.params.email)
+    console.log(req.body)
 })
 //Mailing List Form (Update)  
 BAZAARONLINE.put('/Boolean/Mailing/:eml', (req, res) => {
@@ -106,13 +111,14 @@ BAZAARONLINE.get('/Boolean/Mailing/:eml', (req, res) => {
             allEditEmails: mailListNames[req.params.email]
         })
     })
-    console.log(req.params.email)
+    console.log(req.body)
 })
 //Mailing List Form (Delete) 
 BAZAARONLINE.delete('/Boolean/Mailing/:eml', (req, res) => {
     mailListObject.findByIdAndDelete(req.params.email, (error, deletedEmailListName) => {
         res.redirect('/Boolean')
     })
+    console.log(req.body)
 })
 //==== LOCAL PORT ====//
 BAZAARONLINE.listen(PORT, () => {

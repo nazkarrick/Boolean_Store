@@ -1,0 +1,25 @@
+body {
+    background: linear-gradient(94deg, rgba(242,249,249,1) 1%, rgba(216,238,220,1) 52%, rgba(0,108,162,1) 100%);
+}
+
+.container {
+    display: flex;
+    position: relative;
+}
+.container2 {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+}
+
+#links {
+    flex-direction: row;
+}
+#mainLogo {
+    width: 100%;
+}
+@media (min-width: 600px) {
+    #mainLogo {
+        width: 60%;
+    }
+}
