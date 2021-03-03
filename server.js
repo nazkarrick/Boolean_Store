@@ -63,12 +63,26 @@ BAZAARONLINE.get('/Boolean/Pre_Orders', (req, res) => {
 //========Mail List Controller Data==================//
 //================================================//
 //============================================//
-//Mailing List Form (Show) 
+//Mailing List Form (Index) 
 BAZAARONLINE.get('/Boolean/Mailing', (req, res) => {
     mailListObject.find({}, (error, mailListNames) => {
         res.render('mailing_list.ejs', {
             allEditEmails: mailListNames
         })
+    })
+})
+//Mailing List Form (Show)
+BAZAARONLINE.get('/Boolean/Mailing/:eml', (req, res) => {
+    mailListObject.findOne(req.params.email, (error, mailListNames) => {
+        res.render('mailing_list_show.ejs', {
+            allEditEmails: mailListNames
+        })
+    })
+})
+//Mailing List Form (Delete) 
+BAZAARONLINE.delete('/Boolean/Mailing/:eml', (req, res) => {
+    mailListObject.findByIdAndDelete(req.params.email, (error, deletedEmailListName) => {
+        res.redirect('/Boolean')
     })
 })
 //Mailing list (Create)
@@ -84,7 +98,7 @@ BAZAARONLINE.post('/Boolean/Mailing', (req, res) => {
         res.redirect('/Boolean')
     }) 
 })
-//Edit
+//Mailing List Form (Edit)
 BAZAARONLINE.get('/Boolean/Mailing/:eml', (req, res) => {
     mailListObject.findOne(req.params.email, (error, mailListNames) => {
         res.render('mailing_list_edit.ejs', {
@@ -92,14 +106,7 @@ BAZAARONLINE.get('/Boolean/Mailing/:eml', (req, res) => {
         })
     })
 })
-//Delete 
-BAZAARONLINE.delete('/Boolean/Mailing/:eml', (req, res) => {
-    mailListObject.findByIdAndDelete(req.params.email, (error, deletedEmailListName) => {
-        res.redirect('/Boolean')
-    })
-})
-
-//Update Mail List Email 
+//Mailing List Form (Update)  
 BAZAARONLINE.put('/Boolean/Mailing/:eml', (req, res) => {
     if (req.body.confirmation === 'off') {
         req.body.confirmation = true
