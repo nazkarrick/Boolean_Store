@@ -93,6 +93,11 @@ BAZAARONLINE.get('/Boolean/Mailing/:eml', (req, res) => {
     })
 })
 //Delete 
+BAZAARONLINE.delete('/Boolean/Mailing/:eml', (req, res) => {
+    mailListObject.findByIdAndDelete(req.params.email, (error, deletedEmailListName) => {
+        res.redirect('/Boolean')
+    })
+})
 
 //Update Mail List Email 
 BAZAARONLINE.put('/Boolean/Mailing/:eml', (req, res) => {
