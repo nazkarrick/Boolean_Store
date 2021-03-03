@@ -3,13 +3,14 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
-
 //======= CONFIGURATION ======//
 const BAZAARONLINE = express();
 const PORT = process.env.PORT || 3000; 
 const databaseName = 'Boolean';
+//Schema configuration
 const preOrderObject = require('./models/pre_orders.js') 
-const mailListObject = require('./models/mailing_list.js') //schema to store information?//
+const mailListObject = require('./models/mailing_list.js')
+//Mongoose configuration
 mongoose.connection.once('open', () => {
     console.log('connected to mongo');
 });
@@ -20,8 +21,7 @@ BAZAARONLINE.use(express.urlencoded({extended: true}));
 BAZAARONLINE.use(methodOverride('_method'));
 BAZAARONLINE.use(express.static('public'));
 
-
-//=========== SEEDS ==========//
+//===Seed:1 Pre-Orders , Seed:2 Mailing List===//
 BAZAARONLINE.get('/Boolean/seed', (req, res) => {
     preOrderObject.create([
         {
@@ -78,7 +78,6 @@ BAZAARONLINE.post('/Boolean/Mailing', (req, res) => {
         req.body.confirmation = true
     } else {
         req.body.confirmation = false
-        //alert('Check box to confirm or Press Back to Return')
     } 
     //console.log(req.body)
     mailListObject.create(req.body, (error, mailListNames) => { 
@@ -87,13 +86,25 @@ BAZAARONLINE.post('/Boolean/Mailing', (req, res) => {
 })
 //Edit
 BAZAARONLINE.get('/Boolean/Mailing/:eml', (req, res) => {
-    mailListObject.findById(req.params.id, (error, mailListNames) => {
+    mailListObject.findOne(req.params.email, (error, mailListNames) => {
         res.render('mailing_list_edit.ejs', {
             allEditEmails: mailListNames
         })
     })
 })
+//Delete 
 
+//Update Mail List Email 
+BAZAARONLINE.put('/Boolean/Mailing/:eml', (req, res) => {
+    if (req.body.confirmation === 'off') {
+        req.body.confirmation = true
+    } else {
+        req.body.confirmation = false
+    } 
+    mailListObject.findOneAndUpdate(req.params.email, req.body, {new: true}, (error, updatedMailListName) => {
+        res.redirect('/Boolean')
+    })
+}) 
 //==== LOCAL PORT ====//
 BAZAARONLINE.listen(PORT, () => {
     console.log(`Private listening @ ${PORT}`)
