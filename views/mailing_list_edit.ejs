@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/booleanStore.css">
+    <title>UPDATE EMAIL</title>
+</head>
+<body>
+    <h2 class="headTitle">Update Your Email</h2>
+    <form action="/Boolean/Mailing/<%= allEditEmails.id %>?_method=PUT" method="POST">
+    Email: <input type="text" name="email" value="<%= allEditEmails.email %>">
+    confirmation:
+    <input type="checkbox" name="confirmation">
+            <% if(allEditEmails.confirmation === true) { %>
+                checked
+            <% } %>
+        <br/>
+        <input type="submit" name="" value="Update Email"/>
+    </form>
+    <!-- <section>
+        <p>
+            <% for (let j = 0; j < allEditEmails; j++) { %>
+                <strong>
+                    Old Email: <%= allEditEmails[j].email %>
+                </strong>
+            <% } %>
+        </p> 
+    </section> -->
+</body>
+</html>

@@ -34,28 +34,21 @@ BAZAARONLINE.get('/Boolean/seed', (req, res) => {
         res.redirect('/Boolean/Pre_Orders')
     })
 })
-//=========== ROUTES =========//
+BAZAARONLINE.get('/Boolean/seed', (req, res) => {
+    mailListObject.create([
+        {
+            email: '',
+            confirmation: true
+        }
+    ], (error, data) => {
+        res.redirect('/Boolean')
+    })
+})
+//=========== SHOW ROUTES =========//
 
 //Main Page (Index)
 BAZAARONLINE.get('/Boolean', (req, res) => {
     res.render('main_page.ejs')
-})
-
-//Mailing List Form (New) 
-BAZAARONLINE.get('/Boolean/Mailing', (req, res) => {
-    res.render('mailing_list.ejs')
-})
-
-//Mailing list (Create)
-BAZAARONLINE.post('/Boolean', (req, res) => {
-    console.log(req.body)
-    if (req.body.confirmation === 'on') {
-        req.body.confirmation = true
-    } else {
-        req.body.confirmation = false
-    }
-    //Do I push a premade schema? or create an empty seed route where info can be stored?//
-    res.redirect('/Boolean')
 })
 
 //Pre Order Page
@@ -63,6 +56,40 @@ BAZAARONLINE.get('/Boolean/Pre_Orders', (req, res) => {
     preOrderObject.find({}, (error, preOrders) => {
         res.render('pre_orders.ejs', {
             allPreOrders: preOrders
+        })
+    })
+})
+
+//========Mail List Controller Data==================//
+//================================================//
+//============================================//
+//Mailing List Form (Show) 
+BAZAARONLINE.get('/Boolean/Mailing', (req, res) => {
+    mailListObject.find({}, (error, mailListNames) => {
+        res.render('mailing_list.ejs', {
+            allEditEmails: mailListNames
+        })
+    })
+})
+//Mailing list (Create)
+BAZAARONLINE.post('/Boolean/Mailing', (req, res) => {
+    console.log(req.body)
+    if (req.body.confirmation === 'off') {
+        req.body.confirmation = true
+    } else {
+        req.body.confirmation = false
+        //alert('Check box to confirm or Press Back to Return')
+    } 
+    //console.log(req.body)
+    mailListObject.create(req.body, (error, mailListNames) => { 
+        res.redirect('/Boolean')
+    }) 
+})
+//Edit
+BAZAARONLINE.get('/Boolean/Mailing/:eml', (req, res) => {
+    mailListObject.findById(req.params.id, (error, mailListNames) => {
+        res.render('mailing_list_edit.ejs', {
+            allEditEmails: mailListNames
         })
     })
 })
