@@ -32,9 +32,8 @@ ROUTER.post('/Boolean/Mailing', (req, res) => {
     } else {
         req.body.confirmation = false
     } 
-    console.log(req.body)
     mailListObject.create(req.body, (error, mailListNames) => { 
-        res.redirect('/Boolean')
+        res.redirect('/Boolean/Mailing/:eml')
     }) 
 })
 //========== Mailing List Form (Edit) ============//
@@ -44,7 +43,6 @@ ROUTER.get('/Boolean/Mailing/:eml', (req, res) => {
             allEditEmails: mailListNames
         })
     })
-    console.log(req.body)
 })
 //========== Mailing List Form (Update) ===========//
 ROUTER.put('/Boolean/Mailing/:eml', (req, res) => {

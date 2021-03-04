@@ -19,13 +19,13 @@
                         checked
                     <% } %>
                 <br/>
-                <input type="submit" name="" value="Update Email"/>
+                <input class="updatebtn" type="submit" name="" value="Update Email"/>
+                <!--Delete Email request Code-->
+                <form action="/Boolean/Mailing/<%= allEditEmails.email %>?_method=DELETE" method="POST">
+                    <input class="deletebtn" type="submit" value="Delete Email">
             </form>
             <nav id="links">
-                <a href="/Boolean">Main Page</a>
-            <!--Delete Email request Code-->
-                <form action="/Boolean/Mailing/<%= allEditEmails.email %>?_method=DELETE" method="POST">
-                <input type="submit" value="Delete Email">
+                <a href="/Boolean">Main-Page</a>
             </nav>
     </div>
 </body>

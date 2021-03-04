@@ -5,6 +5,14 @@ body {
 .container {
     width: 100%;
 }
+.deletebtn {
+    padding: 5px;
+    margin-top: 5px;
+}
+.updatebtn {
+    padding: 5px;
+    margin-top: 5px;
+}
 /* ======= Main Page CSS ============= */
 .maincontainer2 {
     padding: 20px;
@@ -24,7 +32,34 @@ body {
 #mainlinks {
     text-align: center;
 }
-
+/* ======== Pre Order Page CSS ====== */
+strong {
+    position: relative;
+    bottom: 5px;
+    text-transform: uppercase;
+    padding: 2px;
+    border-bottom: black 1px solid;
+}
+#preLinks {
+    text-transform: uppercase;
+    text-align: center;
+}
+/* ======== Mailing List Page CSS ====== */
+.container11 {
+    top: 0.5px;
+}
+button {
+    padding: 1px;
+}
+#links {
+    text-transform: uppercase;
+    padding: 5px;
+    word-spacing: 8px;
+}
+.btn1 {
+    padding: 5px;
+    margin-top: 5px;
+}
 /* @media (min-width: 600px) {
     #mainLogo {
         width: 60%;

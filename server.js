@@ -1,10 +1,9 @@
 /*
-REFERENCE:
+REFERENCES:
 Websites utilized(CSS styling): cssgradient.io, w3schools.com 
 Applications utilized: Inkscape to resize images from clients: Inkscape to create Logo: Keynote for wireframe
 Contributors: Ben Manning, Ron Myers, John Jacobs, Glenn Brown, and Phil Winchester
 */
-
 //======== DEPENDENCIES ========//
 require('dotenv').config();
 const express = require('express');
@@ -29,7 +28,6 @@ BAZAARONLINE.use(express.urlencoded({extended: true}));
 BAZAARONLINE.use(methodOverride('_method'));
 BAZAARONLINE.use(express.static('public'));
 BAZAARONLINE.use(mailingListController)
-
 //======= Pre Order (Seed) ==========//
 BAZAARONLINE.get('/Boolean/seed', (req, res) => {
     preOrderObject.create([
