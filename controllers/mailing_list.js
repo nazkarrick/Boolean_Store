@@ -56,13 +56,12 @@ ROUTER.put('/Boolean/Mailing/:eml', (req, res) => {
     })
 }) 
 //========== Mailing List Form (Show) =============//
-ROUTER.get('/Boolean/Mailing/:eml', (req, res) => {
+ROUTER.get('/Boolean/Mailing/:eml/', (req, res) => {
     mailListObject.findById(req.params.id, (error, mailListNames) => {
         res.render('mailing_list_show.ejs', {
             allEditEmails: mailListNames[req.params.email]
         })
     })
-    console.log(req.body)
 })
 //=========== Mailing List Form (Delete) ===========//
 ROUTER.delete('/Boolean/Mailing/:eml', (req, res) => {
