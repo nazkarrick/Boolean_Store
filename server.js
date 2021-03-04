@@ -31,7 +31,7 @@ BAZAARONLINE.get('/Boolean/seed', (req, res) => {
     preOrderObject.create([
         {
             name: 'Dr34dkn0t',
-            image: '/godKingScorpius_EP.png',
+            image: '/godKing400.png',
             description: 'Pre Orders available Dr34dkn0t\'s God King Scorpius EP',
             itemReadyForOrder: false
         }
