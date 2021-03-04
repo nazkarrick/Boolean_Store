@@ -4,7 +4,7 @@
 **Version 1.0,0**!
 
 #### Image:
-[Uploading Screen Shot 2021-03-04 at 12.17.22 PM.png…]()
+/Users/nazkarrikk/iCloud Drive (Archive)/Documents/Boolean_Store/public/Screen Shot 2021-03-04 at 12.17.22 PM.png
 
 
 #### Purpose:
