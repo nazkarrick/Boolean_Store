@@ -1,6 +1,7 @@
 /*
 Websites utilized: cssgradient.io
-Applications utilized: Keynote for background: inkscape for boolean png files:
+Applications utilized: Inkscape to resize images from clients: Inkscape to create Logo: Keynote
+
 */
 
 //======== DEPENDENCIES ========//
@@ -32,7 +33,7 @@ BAZAARONLINE.get('/Boolean/seed', (req, res) => {
         {
             name: 'Dr34dkn0t',
             image: '/godKing400.png',
-            description: 'Pre Orders available Dr34dkn0t\'s God King Scorpius EP',
+            description: 'Limited Edition Vinyl Record Coming Soon - Visit Again for Availability! -',
             itemReadyForOrder: false
         }
     ], (error, data) => {
