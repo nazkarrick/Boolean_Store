@@ -54,6 +54,11 @@ BAZAARONLINE.get('/Boolean/Pre_Orders', (req, res) => {
         })
     })
 })
+
+//========== Heroku Get Route =======//
+BAZAARONLINE.get('/', (req, res) => {
+    res.render('main_page.ejs')
+})
 //========= LOCAL PORT ==============//
 BAZAARONLINE.listen(PORT, () => {
     console.log(`Private listening @ ${PORT}`)
