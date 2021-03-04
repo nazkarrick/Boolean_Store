@@ -10,8 +10,8 @@
 #### WHERE: Local Boolean Store Link: [Boolean Store](http://localhost:3000/Boolean)
 #### WHEN: Version 1.0 (March 4, 2021 1300hrs)
 #### WHY: 1. To gauge customer demand for products          
-2. To Limit financial risk and liability    
-3. 3. Generate excitement with marketing strategies
+####      2. To Limit financial risk and liability    
+####      3. Generate excitement with marketing strategies
 
 #### Objective;
 The customer selects "Boolean" as their preferred Pre-Order Retailer for exclusivity of products.  They register their email and check the Pre-Order Page.  User then leaves.  Comes back every so often to check for updated Pre-Order Page or awaits email for readiness of products. User checks and if to their liking will select the Product for pre-order when available. 
