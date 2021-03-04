@@ -2,7 +2,7 @@
 
 #### WELCOME TO THE BAZAAR WHERE ITEMS ARE NOT AS THEY SEEM!!!
 
-**Version 1.0.0**
+**Web Version: 1.0.0**
 
 
 #### Purpose:
