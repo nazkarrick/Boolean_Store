@@ -4,7 +4,7 @@
 **Version 1.0,0**!
 
 #### Image:
-[main page](public/Screen Shot 2021-03-04 at 12.17.22 PM.png)
+[main page](/public/Screen Shot 2021-03-04 at 12.17.22 PM.png)
 
 #### Purpose:
 WHO: For fans or Customers of limited edition Apparel and Products Designed by Local Artisans.
