@@ -101,13 +101,13 @@ BAZAARONLINE.put('/Boolean/Mailing/:eml', (req, res) => {
     } else {
         req.body.confirmation = false
     } 
-    mailListObject.findOneAndUpdate(req.params.email, req.body, {new: true}, (error, updatedMailListName) => {
+    mailListObject.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedMailListName) => {
         res.redirect('/Boolean')
     })
 }) 
 //Mailing List Form (Show)
 BAZAARONLINE.get('/Boolean/Mailing/:eml', (req, res) => {
-    mailListObject.findOne(req.params.email, (error, mailListNames) => {
+    mailListObject.findById(req.params.id, (error, mailListNames) => {
         res.render('mailing_list_show.ejs', {
             allEditEmails: mailListNames[req.params.email]
         })
@@ -116,7 +116,7 @@ BAZAARONLINE.get('/Boolean/Mailing/:eml', (req, res) => {
 })
 //Mailing List Form (Delete) 
 BAZAARONLINE.delete('/Boolean/Mailing/:eml', (req, res) => {
-    mailListObject.findByIdAndDelete(req.params.email, (error, deletedEmailListName) => {
+    mailListObject.findOneAndDelete(req.params.email, (error, deletedEmailListName) => {
         res.redirect('/Boolean')
     })
     console.log(req.body)
