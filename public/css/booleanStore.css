@@ -60,6 +60,14 @@ button {
     padding: 5px;
     margin-top: 5px;
 }
+
+.footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+    width: auto;
+    height: 2.5rem;
+}
 /* @media (min-width: 600px) {
     #mainLogo {
         width: 60%;
