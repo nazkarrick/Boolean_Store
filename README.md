@@ -8,7 +8,7 @@
 #### Purpose:
 #### WHO: For fans or Customers of limited edition Apparel and Products Designed by Local Artisans.
 #### WHAT: Ecommerce Pre-Order based Site.
-#### WHERE: Local Boolean Store Link: [Boolean Store](http://localhost:3000/Boolean)
+#### WHERE: Heroku Link [BooleanStore](https://booleanstore.herokuapp.com/)
 #### WHEN: Version 1.0 (March 4, 2021 1300hrs)
 #### WHY: 1. To gauge customer demand for products          
 ####      2. To Limit financial risk and liability    
