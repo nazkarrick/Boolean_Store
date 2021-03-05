@@ -51,13 +51,13 @@ ROUTER.put('/Boolean/Mailing/:eml', (req, res) => {
     } else {
         req.body.confirmation = false
     } 
-    mailListObject.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedMailListName) => {
+    mailListObject.findOneAndUpdate(req.params.email, req.body, {new: true}, (error, updatedMailListName) => {
         res.redirect('/Boolean')
     })
 }) 
 //========== Mailing List Form (Show) =============//
 ROUTER.get('/Boolean/Mailing/:eml/', (req, res) => {
-    mailListObject.findById(req.params.id, (error, mailListNames) => {
+    mailListObject.findOne(req.params.email, (error, mailListNames) => {
         res.render('mailing_list_show.ejs', {
             allEditEmails: mailListNames[req.params.email]
         })
@@ -65,10 +65,9 @@ ROUTER.get('/Boolean/Mailing/:eml/', (req, res) => {
 })
 //=========== Mailing List Form (Delete) ===========//
 ROUTER.delete('/Boolean/Mailing/:eml', (req, res) => {
-    mailListObject.findOneAndDelete(req.params.email, (error, deletedEmailListName) => {
+    mailListObject.findOneAndRemove(req.params.email, (error, deletedEmailListName) => {
         res.redirect('/Boolean')
     })
-    console.log(req.body)
 })
 
 module.exports = ROUTER;

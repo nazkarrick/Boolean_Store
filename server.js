@@ -12,7 +12,7 @@ const methodOverride = require('method-override');
 //======= CONFIGURATION ======//
 const BAZAARONLINE = express();
 const PORT = process.env.PORT || 3000; 
-const databaseName = 'Boolean';
+const databaseName = 'boolean';
 //======= CONTROLLER LOGIC =====//
 const mailingListController = require('./controllers/mailing_list.js')
 //======= SCHEMA LOGIC ======//
@@ -29,7 +29,7 @@ BAZAARONLINE.use(methodOverride('_method'));
 BAZAARONLINE.use(express.static('public'));
 BAZAARONLINE.use(mailingListController)
 //======= Pre Order (Seed) ==========//
-BAZAARONLINE.get('/Boolean/seed', (req, res) => {
+BAZAARONLINE.get('/Boolean/Pre_Orders/seed', (req, res) => {
     preOrderObject.create([
         {
             name: 'Dr34dkn0t',
@@ -49,6 +49,7 @@ BAZAARONLINE.get('/Boolean', (req, res) => {
 //========= Pre Order Page (Index) =============//
 BAZAARONLINE.get('/Boolean/Pre_Orders', (req, res) => {
     preOrderObject.find({}, (error, preOrders) => {
+        //console.log(preOrders)
         res.render('pre_orders.ejs', {
             allPreOrders: preOrders
         })
