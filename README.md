@@ -14,6 +14,10 @@
 ####      2. To Limit financial risk and liability    
 ####      3. Generate excitement with marketing strategies
 
+#### Navigation:
+Enter - https://booleanstore.herokuapp.com/seed to load the mailing list page.  Email registry has a weird bug: auto populates some times.  Planned fix for future revision see below.
+Enter - https://booleanstore.herokuapp.com/Boolean/Pre_Orders/seed to load Pre Orders page.  User does not have create or update access to pre orders. Admin user rights listed for future revision see below.
+
 #### Objective;
 The customer selects "Boolean" as their preferred Pre-Order Retailer for exclusivity of products.  They register their email and check the Pre-Order Page.  User then leaves.  Comes back every so often to check for updated Pre-Order Page or awaits email for readiness of products. User checks and if to their liking will select the Product for pre-order when available. 
 
