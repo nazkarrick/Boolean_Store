@@ -41,6 +41,10 @@ BAZAARONLINE.get('/Boolean/Pre_Orders/seed', (req, res) => {
         res.redirect('/Boolean/Pre_Orders')
     })
 })
+//========== Heroku Get Route =======//
+BAZAARONLINE.get('/', (req, res) => {
+    res.render('main_page.ejs')
+})
 //=========== Main Page (Index) =========//
 //Main Page (Index)
 BAZAARONLINE.get('/Boolean', (req, res) => {
@@ -56,10 +60,6 @@ BAZAARONLINE.get('/Boolean/Pre_Orders', (req, res) => {
     })
 })
 
-//========== Heroku Get Route =======//
-BAZAARONLINE.get('/', (req, res) => {
-    res.render('main_page.ejs')
-})
 //========= LOCAL PORT ==============//
 BAZAARONLINE.listen(PORT, () => {
     console.log(`Private listening @ ${PORT}`)
