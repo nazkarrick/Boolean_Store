@@ -19,6 +19,8 @@ Enter - https://booleanstore.herokuapp.com/seed to load the mailing list page.  
 Enter - https://booleanstore.herokuapp.com/Boolean/Pre_Orders/seed to load Pre Orders page.  User does not have create or update access to pre orders. Admin user rights listed for future revision see below.
 
 #### Objective;
+
+I wanted to solve the dilemma for local artisans who wanted a more personal consultant to bring their products to the ecommerce market without 3rd party applications. I have found a market to supply a pre order based approach to garner marketing support for local art while providing data to the artist to supply his/her inventory for product availability. 
 The customer selects "Boolean" as their preferred Pre-Order Retailer for exclusivity of products.  They register their email and check the Pre-Order Page.  User then leaves.  Comes back every so often to check for updated Pre-Order Page or awaits email for readiness of products. User checks and if to their liking will select the Product for pre-order when available. 
 
 #### Code Language:
